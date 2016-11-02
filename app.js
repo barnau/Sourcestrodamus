@@ -1,27 +1,15 @@
 'use strict';
 
 var express = require("express");
-var jsonParser = require("body-parser").json;
 var app = express();
+var routes = require("./routes");
 
-var jsonCheck = function(req, res, next) {
-	if(req.body) {
-		console.log("The sky is", req.body.color);
-	} else {
-		console.log("There is no body property on the request");
-	}
-	next();
-}
+var jsonParser = require("body-parser").json;
 
 
-app.use(jsonCheck);
 
 app.use(jsonParser());
-
-app.use(jsonCheck);
-
-
-
+app.use("/questions", routes)
 
 
 var port = process.env.PORT || 3000;
