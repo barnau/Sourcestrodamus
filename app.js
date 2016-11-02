@@ -2,13 +2,15 @@
 
 var express = require("express");
 var app = express();
+
 var routes = require("./routes");
 
 var jsonParser = require("body-parser").json;
+var logger = require("morgan");
 
-
-
+app.use(logger("dev"));
 app.use(jsonParser());
+
 app.use("/questions", routes)
 
 
