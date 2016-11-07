@@ -83,6 +83,7 @@ db.once("open", function() {
 		animal
 	];
 
+	//uses custom 
 	Animal.remove({}, function(err) {
 		if(err) console.log(err);
 		Animal.create(animalData, function(err, animals) {
